@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 
+
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -7,14 +8,28 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+
     extend: {
+
+      colors: {
+        'bitscraps-green': '#3a9655',
+      },
+      container: {
+        center: true,
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+
+    fontFamily: { 'sans': ['ui-sans-serif', 'system-ui'], 'body': ['"Open Sans"'] }
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["winter"],
+  },
+
 }
 export default config

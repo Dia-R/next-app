@@ -1,6 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Navbar from "./components/NavBar"
+import Footer from "./components/Footer"
+import Sidebar from './components/Sidebar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +18,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" data-theme="winter">
+      <body className={inter.className}>
+        <div style={{ zIndex: 1000 /* or any value higher than your background video's z-index */ }}><Navbar /></div>
+
+
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }
